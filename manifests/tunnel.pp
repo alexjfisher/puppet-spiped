@@ -4,7 +4,7 @@ define spiped::tunnel(
   $dest,
   $secret,
 ) {
-  ensure_resource('package', 'spiped', {'ensure' => 'present'})
+  ensure_packages(['spiped'])
   ensure_resource('file', '/etc/spiped', {'ensure' => 'directory'})
 
   $unitfile = "/lib/systemd/system/spiped-${title}.service"
